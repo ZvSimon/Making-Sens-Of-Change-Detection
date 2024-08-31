@@ -10,7 +10,11 @@ import {MessagesService} from "../message.service";
 })
 export class MessagesListComponent {
   private messagesService = inject(MessagesService);
-  messages = this.messagesService.allMessages;
+
+  get messages(){
+    return this.messagesService.allMessages
+  }
+
   get debugOutput() {
     console.log('[MessagesList] "debugOutput" binding re-evaluated.');
     return 'MessagesList Component Debug Output';
